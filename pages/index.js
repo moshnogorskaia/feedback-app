@@ -8,6 +8,14 @@ function HomePage() {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
     const enteredFeedback = feedbackInputRef.current.value;
+
+    fetch('/api/feedback', {
+      method: 'POST',
+      body: JSON.stringify({ email: enteredEmail, text: enteredFeedback }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   return (
